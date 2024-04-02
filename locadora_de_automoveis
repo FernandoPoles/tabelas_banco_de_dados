@@ -1,0 +1,14 @@
+CREATE TABLE Automovel (
+    placa TEXT PRIMARY KEY,
+    modelo TEXT,
+    ano INTEGER,
+    nome_montadora TEXT,
+    site TEXT,
+    logotipo TEXT
+);
+
+INSERT INTO Automovel (placa, modelo, ano, nome_montadora, site, logotipo) VALUES 
+  ('ABC1234', 'Gol', 2018, 'Volkswagen', 'http://www.vw.com.br', 'VW'),
+  ('XYZ5678', 'Corolla', 2020, 'Toyota', 'http://www.toyota.com.br', 'Toyota');
+
+SELECT * FROM Automovel;
