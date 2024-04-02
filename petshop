@@ -1,0 +1,27 @@
+CREATE TABLE Cliente (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    cpf TEXT UNIQUE,
+    email TEXT,
+    telefone TEXT
+);
+
+CREATE TABLE Pet (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    especie TEXT,
+    nasc TEXT,
+    id_cliente INTEGER,
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id)
+);
+
+INSERT INTO Cliente (nome, cpf, email, telefone) VALUES 
+  ('João', '12345678901', 'joao@example.com', '1234-5678'),
+  ('Maria', '98765432101', 'maria@example.com', '9876-5432');
+
+INSERT INTO Pet (nome, especie, nasc, id_cliente) VALUES 
+  ('Rex', 'Cachorro', '2019-01-15', 1),
+  ('Mimi', 'Gato', '2020-03-20', 2);
+
+SELECT * FROM Cliente;
+SELECT * FROM Pet;
