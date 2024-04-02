@@ -1,0 +1,15 @@
+CREATE TABLE Produto (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    preco REAL,
+    qtd_estoque INTEGER,
+    nome_marca TEXT,
+    sac_marca TEXT,
+    nacionalidade_marca TEXT
+);
+
+INSERT INTO Produto (nome, preco, qtd_estoque, nome_marca, sac_marca, nacionalidade_marca) VALUES 
+  ('Arroz', 5.99, 100, 'Tio João', '0800 123 456', 'Brasileira'),
+  ('Leite', 3.49, 50, 'Ninho', '0800 123 456', 'Brasileira');
+
+SELECT * FROM Produto;
