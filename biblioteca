@@ -1,0 +1,28 @@
+CREATE TABLE Autor (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    email TEXT,
+    nacionalidade TEXT,
+    nasc TEXT
+);
+
+CREATE TABLE Livro (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT,
+    paginas INTEGER,
+    acabamento TEXT,
+    editora TEXT,
+    id_autor INTEGER,
+    FOREIGN KEY (id_autor) REFERENCES Autor(id)
+);
+
+INSERT INTO Autor (nome, email, nacionalidade, nasc) VALUES 
+  ('Machado de Assis', 'machado@example.com', 'Brasileiro', '1839-06-21'),
+  ('George Orwell', 'george@example.com', 'Britânico', '1903-06-25');
+
+INSERT INTO Livro (titulo, paginas, acabamento, editora, id_autor) VALUES 
+  ('Dom Casmurro', 256, 'Capa Dura', 'Editora A', 1),
+  ('1984', 328, 'Brochura', 'Editora B', 2);
+
+SELECT * FROM Autor;
+SELECT * FROM Livro;
