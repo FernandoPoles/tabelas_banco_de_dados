@@ -1,0 +1,64 @@
+CREATE TABLE Filme (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT,
+    duracao INTEGER,
+    idioma_original TEXT,
+    preco REAL
+);
+
+CREATE TABLE Ator (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    nasc TEXT,
+    nacionalidade TEXT
+);
+
+CREATE TABLE Diretor (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    nasc TEXT,
+    nacionalidade TEXT
+);
+
+CREATE TABLE AtorFilme (
+    id_ator INTEGER,
+    id_filme INTEGER,
+    PRIMARY KEY (id_ator, id_filme),
+    FOREIGN KEY (id_ator) REFERENCES Ator(id),
+    FOREIGN KEY (id_filme) REFERENCES Filme(id)
+);
+
+CREATE TABLE DiretorFilme (
+    id_diretor INTEGER,
+    id_filme INTEGER,
+    PRIMARY KEY (id_diretor, id_filme),
+    FOREIGN KEY (id_diretor) REFERENCES Diretor(id),
+    FOREIGN KEY (id_filme) REFERENCES Filme(id)
+);
+
+INSERT INTO Filme (titulo, duracao, idioma_original, preco) VALUES 
+  ('Matrix', 136, 'Inglês', 19.99),
+  ('O Senhor dos Anéis: A Sociedade do Anel', 178, 'Inglês', 29.99);
+
+INSERT INTO Ator (nome, nasc, nacionalidade) VALUES 
+  ('Keanu Reeves', '1964-09-02', 'Canadense'),
+  ('Elijah Wood', '1981-01-28', 'Americano');
+
+INSERT INTO Diretor (nome, nasc, nacionalidade) VALUES 
+  ('Lana Wachowski', '1965-06-21', 'Americana'),
+  ('Peter Jackson', '1961-10-31', 'Neozelandês');
+
+INSERT INTO AtorFilme (id_ator, id_filme) VALUES 
+  (1, 1),
+  (2, 2);
+
+INSERT INTO DiretorFilme (id_diretor, id_filme) VALUES 
+  (1, 1),
+  (2, 2);
+
+
+SELECT * FROM Filme;
+SELECT * FROM Ator;
+SELECT * FROM Diretor;
+SELECT * FROM AtorFilme;
+SELECT * FROM DiretorFilme;
